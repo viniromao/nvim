@@ -75,4 +75,14 @@ vim.opt.scrolloff = 10
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
+--
 -- Custom vinicius keymaps
+--
+vim.api.nvim_create_autocmd({ 'InsertLeave', 'TextChanged' }, {
+  pattern = '*',
+  callback = function()
+    if vim.bo.modified and vim.fn.expand '%' ~= '' then
+      vim.cmd 'silent write'
+    end
+  end,
+})
