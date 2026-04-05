@@ -15,6 +15,10 @@ return {
     { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
   },
   config = function()
-    -- Coloque aqui sua configuração do telescope
+    require('telescope').setup {
+      defaults = {
+        path_display = { shorten = { len = 2, exclude = { -1 } } },
+      },
+    }
   end,
 }

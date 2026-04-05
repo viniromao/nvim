@@ -16,25 +16,27 @@ return {
     },
   },
   config = function()
-    local lspconfig = require 'lspconfig'
+    vim.lsp.config('lua_ls', {})
+    vim.lsp.config('jsonls', {})
+    vim.lsp.config('lemminx', {})
+    vim.lsp.config('kotlin_ls', {})
+    vim.lsp.config('gopls', {})
+    vim.lsp.enable({ 'lua_ls', 'jsonls', 'lemminx', 'kotlin_ls', 'gopls' })
 
-    -- Setup other LSPs normally
-    lspconfig.lua_ls.setup {}
-    lspconfig.jsonls.setup {}
-
-    -- Setup mason without tsserver
     require('mason').setup()
 
     require('mason-lspconfig').setup {
       ensure_installed = {
         'lua_ls',
         'jsonls',
-        -- ⛔ REMOVE tsserver
+        'jdtls',
+        'lemminx',
+        'kotlin_ls',
+        'gopls',
       },
       automatic_installation = true,
     }
 
-    -- 👇 Setup typescript-tools (replaces tsserver)
     require("typescript-tools").setup {}
   end,
 }

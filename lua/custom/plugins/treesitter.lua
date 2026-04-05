@@ -11,6 +11,7 @@ return {
       'javascript',
       'typescript',
       'css',
+      'java',
       'lua',
       'luadoc',
       'markdown',

@@ -17,7 +17,6 @@ lazy.setup {
   require 'custom.plugins.todo-comments',
   require 'custom.plugins.mini',
   require 'custom.plugins.treesitter',
-  require 'custom.plugins.codeium',
   require 'custom.plugins.live-server',
   require 'custom.plugins.dap-js',
 }
